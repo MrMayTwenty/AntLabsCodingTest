@@ -43,8 +43,8 @@ class MainActivity : AppCompatActivity() {
 
                apiClass.getData("1d45e900e64e4afd576abc9b7aa16706").enqueue((object :
                    Callback<ApiResponse>{
-                   override fun onResponse(p0: Call<ApiResponse>, p1: Response<ApiResponse>) {
-                       Toast.makeText(this@MainActivity, "error", Toast.LENGTH_SHORT ).show()
+                   override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
+                       Toast.makeText(this@MainActivity, response.body()?.error, Toast.LENGTH_SHORT ).show()
                    }
 
                    override fun onFailure(p0: Call<ApiResponse>, p1: Throwable) {
